@@ -1,0 +1,30 @@
+#lang s-exp framework/keybinding-lang
+
+(define (rebind key command)
+  (keybinding
+   key
+   (λ (ed evt)
+     (send (send ed get-keymap) call-function command ed evt #t))))
+
+(rebind "m:q" "backward-word")
+(rebind "m:r" "forward-word")
+(rebind "m:s" "backward-character")
+(rebind "m:d" "forward-character")
+(rebind "m:a" "beginning-of-line")
+(rebind "m:f" "end-of-line")
+(rebind "m:e" "previous-line")
+(rebind "m:v" "next-line")
+(rebind "m:w" "previous-page")
+(rebind "m:b" "next-page")
+(rebind "m:u" "delete-previous-character")
+(rebind "m:y" "backward-kill-word")
+(rebind "m:i" "kill-word")
+(rebind "m:o" "delete-key")
+(rebind "m:h" "backward-select")
+(rebind "m:j" "backward-select-word")
+(rebind "m:k" "forward-select-word")
+(rebind "m:l" "forward-select")
+(rebind "m:m" "select-down")
+(rebind "m:n" "select-up")
+(rebind "c:/" "comment-out")
+(rebind "m:/" "uncomment")
